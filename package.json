@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "preact": "^10.26.9",
+    "vlens": "^0.1.6"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}

@@ -9,19 +9,19 @@
   box-sizing: border-box;
 }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Inter", sans-serif;
   color: var(--text);
-  background: var(--bg);
+  background: linear-gradient(to bottom, #f1f3f5, #e9ecef);
   line-height: 1.6;
   padding: 1rem;
 }
 .container {
-  max-width: 800px;
-  margin: 0 auto;
   background: #fff;
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  max-width: 600px;
 }
 header {
   text-align: center;
@@ -30,9 +30,23 @@ header {
 h1 {
   font-size: 2rem;
 }
+h1::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--accent);
+  margin: 0.5rem auto 0;
+}
+
 .subtitle {
   color: var(--accent);
   margin-top: 0.5rem;
+}
+.blurb {
+  text-align: left;
+  margin: 1rem auto 2rem;
+  max-width: 40ch;
 }
 .blurb p {
   margin-bottom: 2rem;
@@ -59,9 +73,19 @@ h1 {
   color: var(--accent);
   text-decoration: none;
   align-self: center;
+  transition: all 0.2s ease;
 }
 .actions a:not(.button):hover {
   text-decoration: underline;
+  transform: translateY(-1px);
+  opacity: 0.85;
+}
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
 }
 
 @media (max-width: 600px) {

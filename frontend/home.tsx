@@ -14,42 +14,66 @@ export function view(
 ): preact.ComponentChild {
   return (
     <div className="container">
-      <header>
-        <img
-          src="/images/avatar.JPEG"
-          alt="Steven Grissom"
-          className="avatar"
-        />
-        <h1>Steven Grissom</h1>
-        <p class="subtitle">Senior Software Engineer</p>
-      </header>
-
-      <section className="blurb">
-        <p>
-          Senior software engineer with 11+ years of experience. I find joy in
-          programming done well. I value high performance and good architecture.
-        </p>
-        <p>
-          Github is just some hobby or experimental work, nothing flashy, but
-          feel free to poke around.
-        </p>
-      </section>
-
-      <section className="actions">
-        <a
-          href="/static/steven-grissom-resume.pdf"
-          className="button"
-          target="_blank"
-        >
-          Resume
-        </a>
-        <a href="https://www.linkedin.com/in/steven-grissom/" target="_blank">
-          LinkedIn
-        </a>
-        <a href="https://github.com/sggrissom" target="_blank">
-          GitHub
-        </a>
-      </section>
+      <Header />
+      <Blurb />
+      <Actions />
     </div>
   );
 }
+
+const Avatar = () => (
+  <img src="/images/avatar.JPEG" alt="Steven Grissom" className="avatar" />
+);
+
+const Header = () => (
+  <header>
+    <Avatar />
+    <h1>Steven Grissom</h1>
+    <p className="subtitle">Senior Software Engineer</p>
+  </header>
+);
+
+const Blurb = () => (
+  <section className="blurb">
+    <p>
+      Senior software engineer with 11+ years of experience. I find joy in
+      programming done well. I value high performance and good architecture.
+    </p>
+    <p>
+      GitHub is just some hobby or experimental work—nothing flashy, but feel
+      free to poke around.
+    </p>
+  </section>
+);
+
+interface ActionLinkProps {
+  href: string;
+  label: string;
+  primary?: boolean;
+}
+
+const ActionLink = ({ href, label, primary = false }: ActionLinkProps) => (
+  <a
+    href={href}
+    className={primary ? "button" : undefined}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    {label}
+  </a>
+);
+
+const Actions = () => (
+  <section className="actions">
+    <ActionLink
+      href="/static/steven-grissom-resume.pdf"
+      label="Resume"
+      primary
+    />
+    <ActionLink
+      href="https://www.linkedin.com/in/steven-grissom/"
+      label="LinkedIn"
+    />
+    <ActionLink href="https://github.com/sggrissom" label="GitHub" />
+  </section>
+);

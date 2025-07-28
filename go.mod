@@ -1,6 +1,8 @@
 module resume
 
-go 1.22.3
+go 1.23.0
+
+toolchain go1.23.11
 
 require (
 	github.com/boltdb/bolt v1.3.1 // indirect
@@ -16,8 +18,11 @@ require (
 	go.hasen.dev/vbeam v0.1.1 // indirect
 	go.hasen.dev/vbolt v0.2.3 // indirect
 	go.hasen.dev/vpack v0.2.0 // indirect
-	golang.org/x/sync v0.9.0 // indirect
-	golang.org/x/sys v0.27.0 // indirect
-	golang.org/x/term v0.26.0 // indirect
+	golang.org/x/crypto v0.40.0 // indirect
+	golang.org/x/net v0.41.0 // indirect
+	golang.org/x/sync v0.16.0 // indirect
+	golang.org/x/sys v0.34.0 // indirect
+	golang.org/x/term v0.33.0 // indirect
+	golang.org/x/text v0.27.0 // indirect
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1 // indirect
 )

@@ -1,5 +1,7 @@
 import * as preact from "preact";
 import * as rpc from "vlens/rpc";
+import * as core from "vlens/core";
+import * as vlens from "vlens";
 
 type Data = {};
 
@@ -53,23 +55,14 @@ interface ActionLinkProps {
 }
 
 const ActionLink = ({ href, label, primary = false }: ActionLinkProps) => (
-  <a
-    href={href}
-    className={primary ? "button" : undefined}
-    target="_blank"
-    rel="noopener noreferrer"
-  >
+  <a href={href} className={primary ? "button" : undefined}>
     {label}
   </a>
 );
 
 const Actions = () => (
   <section className="actions">
-    <ActionLink
-      href="/static/steven-grissom-resume.pdf"
-      label="Resume"
-      primary
-    />
+    <ActionLink href="/resume" label="Resume" primary />
     <ActionLink
       href="https://www.linkedin.com/in/steven-grissom/"
       label="LinkedIn"

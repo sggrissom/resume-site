@@ -17,10 +17,8 @@ export function view(
       </p>
 
       <h1>{data.Name}</h1>
-      <h2>{data.Title}</h2>
 
       <section className="summary">
-        <h3>Summary</h3>
         <p>{data.Summary}</p>
       </section>
 

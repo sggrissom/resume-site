@@ -1,7 +1,7 @@
 -include .env.mk
 
-.PHONY: all build deploy stop_service start_service copy_files
-all: deploy
+.PHONY: all build deploy stop_service start_service copy_files test local
+all: local
 
 # ── deployment settings ────────────────────────────────────────────────────────
 NAS_USER     ?= user
@@ -46,4 +46,7 @@ deploy: build stop_service copy_files start_service
 
 test:
 	go test ./backend/
+
+local:
+	go run resume/local
 

@@ -7,7 +7,7 @@ import (
 	"go.hasen.dev/vbolt"
 
 	"encoding/json"
-	"os"
+	"io"
 )
 
 type ExperienceResponse struct {
@@ -39,18 +39,25 @@ type ResumeResponse struct {
 }
 
 func GetResume(ctx *vbeam.Context, req vbeam.Empty) (resp ResumeResponse, err error) {
-	file, err := os.ReadFile("resume.json")
+	file, err := application.Frontend.Open("resume/resume.json")
 	if err != nil {
 		return
 	}
-	err = json.Unmarshal(file, &resp)
+	data, err := io.ReadAll(file)
+	if err != nil {
+		return
+	}
+	err = json.Unmarshal(data, &resp)
 	return
 }
+
+var application *vbeam.Application
 
 func MakeApplication() *vbeam.Application {
 	vbeam.RunBackServer(cfg.Backport)
 	db := vbolt.Open(cfg.DBPath)
 	var app = vbeam.NewApplication("ResumeSite", db)
 	vbeam.RegisterProc(app, GetResume)
+	application = app
 	return app
 }

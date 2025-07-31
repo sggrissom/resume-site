@@ -18,7 +18,7 @@ func main() {
 		FERoot:       "frontend",
 		EntryTS:      []string{"main.tsx"},
 		EntryHTML:    []string{"index.html"},
-		CopyItems:    []string{"images", "css"},
+		CopyItems:    []string{"images", "css", "resume"},
 		Outdir:       "release/dist",
 		NoSourceMaps: true,
 		Define: map[string]string{

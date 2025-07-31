@@ -8,6 +8,7 @@ import (
 
 	"encoding/json"
 	"io"
+	"os"
 )
 
 type ExperienceResponse struct {
@@ -38,8 +39,38 @@ type ResumeResponse struct {
 	Education  EducationResponse
 }
 
+func getResumeCachePath() string {
+	return cfg.StaticDir + "cache/resume.json"
+}
+
+func getResumeTextPath() string {
+	return "resume/resume.json"
+}
+
 func GetResume(ctx *vbeam.Context, req vbeam.Empty) (resp ResumeResponse, err error) {
-	file, err := application.Frontend.Open("resume/resume.json")
+	srcFile, err := application.Frontend.Open(getResumeTextPath())
+	if err != nil {
+		return resp, err
+	}
+	defer srcFile.Close()
+
+	err = os.MkdirAll(cfg.StaticDir+"cache", 0755)
+	if err != nil {
+		return resp, err
+	}
+
+	dstFile, err := os.Create(getResumeCachePath())
+	if err != nil {
+		return resp, err
+	}
+	defer dstFile.Close()
+
+	_, err = io.Copy(dstFile, srcFile)
+	if err != nil {
+		return resp, err
+	}
+
+	file, err := os.Open(getResumeCachePath())
 	if err != nil {
 		return
 	}

@@ -64,7 +64,7 @@ const ActionLink = ({ href, label, primary = false }: ActionLinkProps) => (
 
 const Actions = () => (
   <section className="actions">
-    <ActionLink href="/resume" label="Resume" primary />
+    <ActionLink href="/resume-page" label="Resume" primary />
     <ActionLink
       href="https://www.linkedin.com/in/steven-grissom/"
       label="LinkedIn"

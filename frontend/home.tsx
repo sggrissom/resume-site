@@ -38,12 +38,14 @@ const Header = () => (
 const Blurb = () => (
   <section className="blurb">
     <p>
-      Senior software engineer with 11+ years of experience. I find joy in
-      programming done well. I value high performance and good architecture.
+      Welcome! I’m a husband, father, gardener, and home cook. I also happen to
+      love programming, especially building systems that are fast, reliable, and
+      well-architected.
     </p>
     <p>
-      GitHub is just some hobby or experimental work—nothing flashy, but feel
-      free to poke around.
+      My GitHub is mostly small projects, experiments, and some old school work.
+      Nothing fancy; I stay busy with my day job. This site is there too if
+      you're curious.
     </p>
   </section>
 );
@@ -55,7 +57,7 @@ interface ActionLinkProps {
 }
 
 const ActionLink = ({ href, label, primary = false }: ActionLinkProps) => (
-  <a href={href} className={primary ? "button" : undefined}>
+  <a href={href} className={primary ? "mainButton button" : "button"}>
     {label}
   </a>
 );

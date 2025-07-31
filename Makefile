@@ -43,3 +43,7 @@ start_service:
 
 deploy: build stop_service copy_files start_service
 	@echo "✅ Deployment complete."
+
+test:
+	go test ./backend/
+

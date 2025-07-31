@@ -57,7 +57,7 @@ interface ActionLinkProps {
 }
 
 const ActionLink = ({ href, label, primary = false }: ActionLinkProps) => (
-  <a href={href} className={primary ? "mainButton button" : "button"}>
+  <a href={href} className={primary ? "button" : undefined}>
     {label}
   </a>
 );

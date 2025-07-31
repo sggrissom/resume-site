@@ -1,4 +1,4 @@
-include .env.mk
+-include .env.mk
 
 .PHONY: all build deploy stop_service start_service copy_files
 all: deploy

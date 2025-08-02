@@ -1,27 +1,23 @@
 import * as preact from "preact";
 import * as vlens from "vlens";
+import { Ref } from "vlens/refs";
 
 type Theme = {
   value: "light" | "dark";
 };
 
 const useTheme = vlens.declareHook((): Theme => {
-  let themeValue;
-  const stored = localStorage.getItem("theme") as "light" | "dark" | null;
-  if (stored != null) {
-    themeValue = stored;
-  } else {
-    const systemDark = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    ).matches;
-    themeValue = systemDark ? "dark" : "light";
-  }
+  const stored = localStorage.getItem("theme") as Theme["value"] | null;
+  const defaultTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+
+  const themeValue: Theme["value"] = stored ?? defaultTheme;
 
   document.documentElement.setAttribute("data-theme", themeValue);
   localStorage.setItem("theme", themeValue);
-  return {
-    value: themeValue,
-  };
+
+  return { value: themeValue };
 });
 
 export const ThemeToggle = () => {

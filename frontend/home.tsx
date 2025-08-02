@@ -19,6 +19,7 @@ export function view(
       <Header />
       <Blurb />
       <Actions />
+      <ThemeToggle />
     </div>
   );
 }
@@ -72,3 +73,31 @@ const Actions = () => (
     <ActionLink href="https://github.com/sggrissom" label="GitHub" />
   </section>
 );
+
+type Theme = {
+  value: string;
+};
+
+const useTheme = vlens.declareHook((): "dark" | "light" => ({
+  value: "light",
+}));
+
+const ThemeToggle = () => {
+  let theme = useTheme();
+  const themeRef = vlens.ref(theme, "value");
+  return (
+    <button
+      onClick={vlens.cachePartial(themeToggleClicked, themeRef)}
+      className="theme-switch"
+    >
+      {vlens.refGet(themeRef) === "dark" ? "☀️ Light" : "🌙 Dark"}
+    </button>
+  );
+};
+
+const themeToggleClicked = (themeRef: Ref) => {
+  const next = vlens.refGet(themeRef) === "dark" ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", next);
+  vlens.refSet(themeRef, next);
+  vlens.scheduleRedraw();
+};

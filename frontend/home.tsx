@@ -78,9 +78,14 @@ type Theme = {
   value: string;
 };
 
-const useTheme = vlens.declareHook((): "dark" | "light" => ({
-  value: "light",
-}));
+const useTheme = vlens.declareHook((): "dark" | "light" => {
+  const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const themeValue = systemDark ? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", themeValue);
+  return {
+    value: themeValue,
+  };
+});
 
 const ThemeToggle = () => {
   let theme = useTheme();

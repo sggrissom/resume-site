@@ -6,8 +6,6 @@ import (
 	"os"
 	"resume"
 
-	core_server "go.hasen.dev/core_server/lib"
-
 	"go.hasen.dev/vbeam"
 	"go.hasen.dev/vbeam/esbuilder"
 	"go.hasen.dev/vbeam/local_ui"
@@ -29,8 +27,6 @@ func StartLocalServer() {
 
 	var addr = fmt.Sprintf(":%d", Port)
 	var appServer = &http.Server{Addr: addr, Handler: app}
-
-	core_server.AnnounceForwardTarget(Domain, Port)
 	appServer.ListenAndServe()
 }
 

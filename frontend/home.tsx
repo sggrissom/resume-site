@@ -2,6 +2,7 @@ import * as preact from "preact";
 import * as rpc from "vlens/rpc";
 import * as core from "vlens/core";
 import * as vlens from "vlens";
+import { ThemeToggle } from "./theme";
 
 type Data = {};
 
@@ -73,36 +74,3 @@ const Actions = () => (
     <ActionLink href="https://github.com/sggrissom" label="GitHub" />
   </section>
 );
-
-type Theme = {
-  value: string;
-};
-
-const useTheme = vlens.declareHook((): "dark" | "light" => {
-  const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const themeValue = systemDark ? "dark" : "light";
-  document.documentElement.setAttribute("data-theme", themeValue);
-  return {
-    value: themeValue,
-  };
-});
-
-const ThemeToggle = () => {
-  let theme = useTheme();
-  const themeRef = vlens.ref(theme, "value");
-  return (
-    <button
-      onClick={vlens.cachePartial(themeToggleClicked, themeRef)}
-      className="theme-switch"
-    >
-      {vlens.refGet(themeRef) === "dark" ? "☀️ Light" : "🌙 Dark"}
-    </button>
-  );
-};
-
-const themeToggleClicked = (themeRef: Ref) => {
-  const next = vlens.refGet(themeRef) === "dark" ? "light" : "dark";
-  document.documentElement.setAttribute("data-theme", next);
-  vlens.refSet(themeRef, next);
-  vlens.scheduleRedraw();
-};

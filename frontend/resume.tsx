@@ -1,5 +1,6 @@
 import * as preact from "preact";
 import * as server from "@app/server";
+import { ThemeToggle } from "./theme";
 
 export async function fetch(route: string, prefix: string) {
   return server.GetResume({});
@@ -77,6 +78,7 @@ export function view(
           {data.Education.Period})
         </p>
       </section>
+      <ThemeToggle />
     </div>
   );
 }

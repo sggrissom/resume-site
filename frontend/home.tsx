@@ -26,7 +26,18 @@ export function view(
 }
 
 const Avatar = () => (
-  <img src="/images/avatar.JPEG" alt="Steven Grissom" className="avatar" />
+  <picture>
+    <source srcset="/images/avatar-96x98.webp" type="image/webp" />
+    <img
+      src="/images/avatar-96x98.jpg"
+      width="96"
+      height="98"
+      alt="Steven Grissom"
+      loading="lazy"
+      decoding="async"
+      className="avatar"
+    />
+  </picture>
 );
 
 const Header = () => (

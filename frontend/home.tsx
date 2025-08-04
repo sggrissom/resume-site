@@ -59,7 +59,7 @@ const Hero = () => (
           href="#"
           onClick={(e) => {
             e.preventDefault();
-            window.location.href = "/resume/resume.pdf";
+            window.location.href = "/resume/Steven-Grissom-Resume.pdf";
           }}
         >
           Download PDF

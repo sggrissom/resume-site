@@ -46,7 +46,7 @@ const Summary: FunctionalComponent<ResumeProps> = ({ data }) => (
           href="#"
           onClick={(e) => {
             e.preventDefault();
-            window.location.href = "/resume/resume.pdf";
+            window.location.href = "/resume/Steven-Grissom-Resume.pdf";
           }}
         >
           Download PDF

@@ -16,6 +16,38 @@ block(`
 `);
 
 block(`
+html.theme-transition body,
+html.theme-transition .section,
+html.theme-transition .hero,
+html.theme-transition .card,
+html.theme-transition .btn,
+html.theme-transition .btn-primary {
+  transition:
+    background-color var(--transition-speed) ease,
+    color            var(--transition-speed) ease,
+    border-color     var(--transition-speed) ease,
+    background-image var(--transition-speed) ease,
+    filter           var(--transition-speed) ease;
+}
+`);
+
+block(`
+.btn-primary {
+  transition:
+    background-image var(--transition-speed) ease,
+    filter var(--transition-speed) ease;
+}
+`);
+
+block(`
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+  }
+}
+`);
+
+block(`
 * {
   box-sizing: border-box;
 }

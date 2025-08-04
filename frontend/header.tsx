@@ -87,12 +87,19 @@ export const Header = () => {
 };
 
 const themeToggleClicked = (themeRef: Ref) => {
-  const next = vlens.refGet(themeRef) === "dark" ? "light" : "dark";
-  document.documentElement.setAttribute("data-theme", next);
-  localStorage.setItem("theme", next);
-  vlens.refSet(themeRef, next);
-  vlens.scheduleRedraw();
-};
+  const html = document.documentElement
+  html.classList.add("theme-transition")
+
+  const next = vlens.refGet(themeRef) === "dark" ? "light" : "dark"
+  html.setAttribute("data-theme", next)
+  localStorage.setItem("theme", next)
+  vlens.refSet(themeRef, next)
+  vlens.scheduleRedraw()
+
+  window.setTimeout(() => {
+    html.classList.remove("theme-transition")
+  }, 600)
+}
 
 const menuClicked = (menuRef: Ref) => {
   const handleClickOutside = (event: MouseEvent) => {

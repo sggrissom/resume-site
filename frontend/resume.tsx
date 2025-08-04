@@ -43,7 +43,7 @@ const Summary: FunctionalComponent<ResumeProps> = ({ data }) => (
       <div className="download" style="margin-left:auto;">
         <a
           className="btn btn-primary"
-          href="/resume/resume.pdf"
+          href="#"
           onClick={(e) => {
             e.preventDefault();
             window.location.href = "/resume/resume.pdf";
@@ -67,12 +67,12 @@ const Experience: FunctionalComponent<ResumeProps> = ({ data }) => (
     <h3>Experience</h3>
 
     {data.Experience.map((job) => (
-      <div className="card" style="margin-top:6px;">
+      <div className="card">
         <strong>{job.Role}</strong> — {job.Company}
-        <div className="muted" style="color:#9fb0c3; margin-top:4px;">
+        <div className="muted" style="margin-top:4px;">
           {job.Period}
         </div>
-        <div className="muted" style="color:#9fb0c3; margin-top:4px;">
+        <div className="muted" style="margin-top:4px;">
           {job.Location}
         </div>
         <ul>
@@ -104,7 +104,7 @@ const Education: FunctionalComponent<ResumeProps> = ({ data }) => (
     <h3>Education</h3>
     <div className="card">
       {data.Education.Degree} — {data.Education.School}
-      <div className="muted" style="color:#9fb0c3;">
+      <div className="muted">
         {data.Education.Period}
       </div>
     </div>

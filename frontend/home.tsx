@@ -53,7 +53,7 @@ const Hero = () => (
         </a>
         <a
           className="btn"
-          href="/resume/resume.pdf"
+          href="#"
           onClick={(e) => {
             e.preventDefault();
             window.location.href = "/resume/resume.pdf";

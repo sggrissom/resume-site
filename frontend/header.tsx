@@ -72,12 +72,14 @@ export const Header = () => {
               LinkedIn
             </a>
           </li>
-          <button
-            onClick={vlens.cachePartial(themeToggleClicked, themeRef)}
-            className="theme-switch"
-          >
-            {vlens.refGet(themeRef) === "dark" ? "☀️ Light" : "🌙 Dark"}
-          </button>
+          <li>
+            <button
+              onClick={vlens.cachePartial(themeToggleClicked, themeRef)}
+              className="theme-switch"
+            >
+              {vlens.refGet(themeRef) === "dark" ? "☀️ Light" : "🌙 Dark"}
+            </button>
+          </li>
         </ul>
       </nav>
     </header>
@@ -93,14 +95,17 @@ const themeToggleClicked = (themeRef: Ref) => {
 };
 
 const menuClicked = (menuRef: Ref) => {
-  const handleClickOutside = (event) => {
-    if (
-      event.target.tagName !== "A" &&
-      !event.target.classList.contains("theme-switch")
-    ) {
-      document.removeEventListener("mousedown", handleClickOutside);
-      vlens.refSet(menuRef, false);
-      vlens.scheduleRedraw();
+  const handleClickOutside = (event: MouseEvent) => {
+    if (event.target instanceof HTMLElement) {
+      if (
+        event.target.tagName !== "A" &&
+        !event.target.classList.contains("nav-toggle") &&
+        !event.target.classList.contains("theme-switch")
+      ) {
+        document.removeEventListener("mousedown", handleClickOutside);
+        vlens.refSet(menuRef, false);
+        vlens.scheduleRedraw();
+      }
     }
   };
 

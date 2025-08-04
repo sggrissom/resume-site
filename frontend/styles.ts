@@ -98,7 +98,7 @@ block(`
   position: sticky;
   top: 0;
   z-index: 10;
-  background: var(--bg);
+  background: var(--border);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
 }
@@ -548,5 +548,15 @@ block(`
     width: 100%;
     justify-content: center;
   }
+}
+`);
+
+block(`
+.site-footer {
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  text-align: center;
+  padding: 18px;
+  background: #0f131a;
 }
 `);

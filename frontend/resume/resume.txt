@@ -1,5 +1,5 @@
 ﻿Steven Grissom
-sggrissom@gmail.com | grissom.zone
+sggrissom@gmail.com | steven.grissom.zone
 
 
 Summary
@@ -13,8 +13,8 @@ Tools: React, Elasticsearch, Solr, Lucene, AWS, Zend, RabbitMQ, Kibana
 
 Experience
 Senior Software Engineer, Veeva Systems Inc – Pleasanton, CA (Remote)        Jan 2023 – Present
-* Acted as backend-focused technical lead for full-stack feature development on a B2B learning platform, focusing on asynchronous job processing, system integration, and reliable data workflows.
-* Led implementation of an automation system that syncs user and training profiles, eliminating manual setup and ensuring training eligibility is maintained across user lifecycle events.
+* Acted as a Java, backend-focused technical lead for full-stack feature development on a B2B learning platform, focusing on asynchronous job processing, system integration, and reliable data workflows.
+* Led implementation of an automation system in Java that syncs user and training profiles, eliminating manual setup and ensuring training eligibility is maintained across user lifecycle events.
 * Developed backend logic to support global GCP training auto-completion by querying a multi-tenant registry and retrieving certificates from a shared S3 bucket, reducing redundant training across customers.
 * Delivered a rule-based curriculum outcome system from end to end, with frontend configuration in React and backend async handling, laying the groundwork for extensible training automation.
 * Investigate and resolve production issues as part of on-call rotation, using distributed log tracing and service-level debugging to identify and resolve issues impacting customers.
@@ -24,7 +24,7 @@ Senior Software Engineer, Veeva Systems Inc – Pleasanton, CA (Remote)        J
 
 Senior Software Developer, Paycom – Oklahoma City, OK        Sep 2016 – Dec 2022
 * Contributed to a high-volume Applicant Tracking System within Paycom’s HR software suite, delivering full-stack features across candidate search, requisition workflows, and offer management. Focused on performance, maintainability, and system reliability while leading cross-team initiatives from prototype to production.
-* Prototyped and led development of a high-performance resume search engine using Elasticsearch, reducing query times from 30+ seconds to under 100ms. Designed a custom C# sync service to keep search data in sync with MySQL in a predominantly PHP-based ecosystem.
+* Prototyped and led development of a high-performance resume search engine using Elasticsearch, reducing query times from 30+ seconds to under 100ms. Designed a custom C# sync service to keep 7 million+ search data records in sync with MySQL in a predominantly PHP-based ecosystem.
 * Delivered a large-scale offer letter management system with templating, approval workflows, and PDF generation. Integrated with payroll and onboarding systems by collaborating across multiple product teams to ensure data consistency and automation.
 * Introduced fast, custom unit testing frameworks (C#, PHP, React) to accelerate developer feedback loops, cutting suite runtime from over a minute to under 5 seconds and promoting test-driven development.
 * Migrated legacy frontend features to React and RESTful APIs to support mobile compatibility and improved UI performance.

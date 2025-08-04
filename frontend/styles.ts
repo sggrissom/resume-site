@@ -467,7 +467,7 @@ block(`
     border-radius: 12px;
     padding: 8px;
     flex-direction: column;
-    gap: 4px;
+    gap: 8px;
   }
 
   .hidden {
@@ -475,8 +475,12 @@ block(`
   }
 
   .nav-links a {
-    padding: 12px;
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
     border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
   }
 
   .nav-links.open {

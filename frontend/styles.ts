@@ -98,7 +98,7 @@ block(`
   position: sticky;
   top: 0;
   z-index: 10;
-  background: var(--border);
+  background: var(--surface);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
 }
@@ -142,7 +142,7 @@ block(`
 `);
 
 block(`
-.nav-links a {
+.nav-links a, .nav-links button {
   color: var(--text);
   text-decoration: none;
   padding: 10px 12px;
@@ -155,7 +155,7 @@ block(`
 
 block(`
 
-.nav-links a:hover {
+.nav-links a:hover, .nav-links button:hover {
   background: var(--hover-bg);
   color: var(--muted);
 }

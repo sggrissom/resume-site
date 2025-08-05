@@ -38,7 +38,6 @@ var FEOpts = esbuilder.FEBuildOptions{
 	EntryHTML: []string{"index.html"},
 	CopyItems: []string{
 		"images",
-		"css",
 		"resume",
 	},
 	Outdir: FEDist,
@@ -52,7 +51,6 @@ var FEOpts = esbuilder.FEBuildOptions{
 var FEWatchDirs = []string{
 	"frontend",
 	"frontend/images",
-	"frontend/css",
 	"frontend/resume",
 }
 

@@ -17,7 +17,7 @@ export function view(
 ): preact.ComponentChild {
   return (
     <div>
-      <Header />
+      <Header isHome />
       <main id="app" class="app">
         <Hero />
         <Highlights />

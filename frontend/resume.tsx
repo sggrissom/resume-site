@@ -14,7 +14,7 @@ export function view(
 ): preact.ComponentChild {
   return (
     <div>
-      <Header />
+      <Header isHome={false} />
       <main id="app" class="app">
         <div className="resume">
           <Summary data={data} />
@@ -104,9 +104,7 @@ const Education: FunctionalComponent<ResumeProps> = ({ data }) => (
     <h3>Education</h3>
     <div className="card">
       {data.Education.Degree} — {data.Education.School}
-      <div className="muted">
-        {data.Education.Period}
-      </div>
+      <div className="muted">{data.Education.Period}</div>
     </div>
   </div>
 );

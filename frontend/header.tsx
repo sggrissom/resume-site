@@ -24,7 +24,7 @@ const useHeader = vlens.declareHook((): HeaderData => {
   };
 });
 
-export const Header = () => {
+export const Header = ({ isHome }: { isHome: boolean }) => {
   const headerData = useHeader();
   const themeRef = vlens.ref(headerData, "theme");
   const menuRef = vlens.ref(headerData, "isMenuOpen");
@@ -49,10 +49,14 @@ export const Header = () => {
           id="navLinks"
         >
           <li>
-            <a href="/">Home</a>
+            <a href="/" className={isHome ? "active" : ""}>
+              Home
+            </a>
           </li>
           <li>
-            <a href="/resume-page">Resume</a>
+            <a href="/resume-page" className={!isHome ? "active" : ""}>
+              Resume
+            </a>
           </li>
           <li>
             <a
@@ -87,19 +91,19 @@ export const Header = () => {
 };
 
 const themeToggleClicked = (themeRef: Ref) => {
-  const html = document.documentElement
-  html.classList.add("theme-transition")
+  const html = document.documentElement;
+  html.classList.add("theme-transition");
 
-  const next = vlens.refGet(themeRef) === "dark" ? "light" : "dark"
-  html.setAttribute("data-theme", next)
-  localStorage.setItem("theme", next)
-  vlens.refSet(themeRef, next)
-  vlens.scheduleRedraw()
+  const next = vlens.refGet(themeRef) === "dark" ? "light" : "dark";
+  html.setAttribute("data-theme", next);
+  localStorage.setItem("theme", next);
+  vlens.refSet(themeRef, next);
+  vlens.scheduleRedraw();
 
   window.setTimeout(() => {
-    html.classList.remove("theme-transition")
-  }, 600)
-}
+    html.classList.remove("theme-transition");
+  }, 600);
+};
 
 const menuClicked = (menuRef: Ref) => {
   const handleClickOutside = (event: MouseEvent) => {

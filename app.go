@@ -7,6 +7,7 @@ import (
 	"go.hasen.dev/vbeam"
 	"go.hasen.dev/vbolt"
 
+	"net"
 	"net/http"
 	"strings"
 )
@@ -30,7 +31,7 @@ func MakeApplication() *vbeam.Application {
 
 func LogRequestsMiddleware(app *vbeam.Application) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		ip := r.RemoteAddr
+		ip := realIP(r)
 		ua := r.UserAgent()
 		ref := r.Referer()
 		path := r.URL.Path
@@ -48,4 +49,21 @@ func logRequestToDB(db *vbolt.DB, ip, userAgent, referrer, path string) {
 		backend.AddVisitTx(tx, ip, userAgent, referrer, path)
 		vbolt.TxCommit(tx)
 	})
+}
+
+func realIP(r *http.Request) string {
+	if xff := r.Header.Get("X-Forwarded-For"); xff != "" {
+		parts := strings.Split(xff, ",")
+		return strings.TrimSpace(parts[0])
+	}
+
+	if xrip := r.Header.Get("X-Real-IP"); xrip != "" {
+		return xrip
+	}
+
+	host, _, err := net.SplitHostPort(r.RemoteAddr)
+	if err != nil {
+		return r.RemoteAddr
+	}
+	return host
 }

@@ -54,7 +54,6 @@ export interface Session {
     EndTime: string
     Ip: string
     UserAgent: string
-    Country: string
     RequestCount: number
     IsBot: boolean
     IsMobile: boolean

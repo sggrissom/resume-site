@@ -172,6 +172,12 @@ func getPlaform(userAgent string) string {
 		return "Linux"
 	case strings.Contains(ua, "cros"):
 		return "ChromeOS"
+	case strings.Contains(ua, "iphone"):
+		return "iPhone"
+	case strings.Contains(ua, "ios"):
+		return "iOS"
+	case strings.Contains(ua, "android"):
+		return "Android"
 	default:
 		return "Unknown"
 	}

@@ -29,6 +29,6 @@ func main() {
 
 	addr := fmt.Sprintf(":%d", Port)
 	log.Printf("listening on %s\n", addr)
-	var appServer = &http.Server{Addr: addr, Handler: app}
+	var appServer = &http.Server{Addr: addr, Handler: resume.LogRequestsMiddleware(app)}
 	appServer.ListenAndServe()
 }

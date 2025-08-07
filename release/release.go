@@ -15,7 +15,7 @@ import (
 //go:embed dist
 var embedded embed.FS
 
-const Port = 8666
+const Port = 8660
 
 func main() {
 	distFS, err := fs.Sub(embedded, "dist")

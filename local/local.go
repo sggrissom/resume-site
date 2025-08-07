@@ -13,7 +13,7 @@ import (
 	"resume/cfg"
 )
 
-const Port = 8666
+const Port = 8660
 const Domain = "resume.localhost"
 const FEDist = ".serve/frontend"
 

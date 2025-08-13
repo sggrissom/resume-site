@@ -8,7 +8,7 @@ Senior Software Engineer with 11+ years building full‑stack systems and owning
 
 Skills
 Languages: Java, C#, Javascript, Typescript, PHP, C, C++
-Tools: React, Elasticsearch, Solr, Lucene, AWS, Zend, RabbitMQ, Kibana
+Tools: React, Elasticsearch, Solr, Lucene, AWS, Zend, RabbitMQ, Kibana, Spring Boot
 
 
 Experience
@@ -31,7 +31,10 @@ Senior Software Developer, Paycom – Oklahoma City, OK        Sep 2016 – Dec 
 * Mentored junior developers, authored technical documentation, and served as technical lead on cross-team projects through all phases of planning, implementation, and delivery.
 
 
+
+
 Electrical Engineer, Federal Aviation Administration – Oklahoma City, OK        Aug 2014 – Jul 2016
+* Contributed to the operation and support of the ASDE-X radar system, a real-time, high-reliability FAA program deployed at major U.S. airports to track aircraft and ground vehicles, enhancing safety and efficiency in air traffic management.
 * Built a high-speed C++ application to parse fault logs, reducing processing time from 2 minutes to under 1 second, adopted by 8–10 engineers.
 
 

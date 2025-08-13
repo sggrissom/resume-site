@@ -537,6 +537,6 @@ block(`
   color: var(--muted);
   text-align: center;
   padding: 18px;
-  background: #0f131a;
+  background: var(--surface);
 }
 `);

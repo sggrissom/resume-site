@@ -1,6 +1,12 @@
 import { block } from "vlens/css";
 
 block(`
+:root {
+  --transition-speed: 0.3s;
+}
+`);
+
+block(`
 [data-theme="dark"] {
   --bg: #0f1216;
   --surface: #161a20;
@@ -18,18 +24,16 @@ block(`
 `);
 
 block(`
-html.theme-transition body,
-html.theme-transition .section,
-html.theme-transition .hero,
-html.theme-transition .card,
-html.theme-transition .btn,
-html.theme-transition .btn-primary {
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
   transition:
     background-color var(--transition-speed) ease,
     color            var(--transition-speed) ease,
     border-color     var(--transition-speed) ease,
     background-image var(--transition-speed) ease,
-    filter           var(--transition-speed) ease;
+    filter           var(--transition-speed) ease,
+    backdrop-filter  var(--transition-speed) ease !important;
 }
 `);
 
@@ -143,8 +147,8 @@ block(`
   padding: 10px 12px;
   border-radius: 8px;
   transition:
-    background 0.2s ease,
-    color 0.2s ease;
+    background var(--transition-speed) ease,
+    color var(--transition-speed) ease;
 }
 `);
 
@@ -263,7 +267,7 @@ block(`
   background: var(--bg);
   transition:
     transform 0.06s ease,
-    background 0.2s ease;
+    background var(--transition-speed) ease;
   min-height: 44px; /* touch target */
 }
 `);
@@ -281,7 +285,7 @@ block(`
   color: var(--button-text);
   border: none;
   font-weight: 700;
-  transition: filter 0.2s ease;
+  transition: filter var(--transition-speed) ease;
 }
 `);
 

@@ -55,9 +55,9 @@ var FEWatchDirs = []string{
 }
 
 func main() {
-	os.Mkdir(".serve", 0644)
-	os.Mkdir(".serve/static", 0644)
-	os.Mkdir(".serve/frontend", 0644)
+	os.MkdirAll(".serve", 0755)
+	os.MkdirAll(".serve/static", 0755)
+	os.MkdirAll(".serve/frontend", 0755)
 
 	var args local_ui.LocalServerArgs
 	args.Domain = Domain

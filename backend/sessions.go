@@ -218,6 +218,9 @@ func GetAllSessions(tx *vbolt.Tx) (sessions []Session) {
 func RegisterVisitRoutes(app *vbeam.Application) {
 	vbeam.RegisterProc(app, GetVisits)
 	vbeam.RegisterProc(app, GetSessions)
+	vbeam.RegisterProc(app, GetSessionStats)
+	vbeam.RegisterProc(app, GetTopPages)
+	vbeam.RegisterProc(app, GetReferrerStats)
 }
 
 type VisitsResponse struct {
@@ -235,5 +238,155 @@ type SessionsResponse struct {
 
 func GetSessions(ctx *vbeam.Context, req vbeam.Empty) (resp SessionsResponse, err error) {
 	resp.Sessions = GetAllSessions(ctx.Tx)
+	return
+}
+
+type SessionStats struct {
+	TotalVisits        int
+	TotalSessions      int
+	HumanSessions      int
+	BotSessions        int
+	MobileSessions     int
+	DesktopSessions    int
+	AveragePageViews   float64
+	TodayVisits        int
+	TodaySessions      int
+	TopPlatforms       []PlatformCount
+	TopBrowsers        []BrowserCount
+}
+
+type PlatformCount struct {
+	Platform string
+	Count    int
+}
+
+type BrowserCount struct {
+	Browser string
+	Count   int
+}
+
+type SessionStatsResponse struct {
+	Stats SessionStats
+}
+
+func GetSessionStats(ctx *vbeam.Context, req vbeam.Empty) (resp SessionStatsResponse, err error) {
+	visits := GetAllVisits(ctx.Tx)
+	sessions := GetAllSessions(ctx.Tx)
+
+	resp.Stats.TotalVisits = len(visits)
+	resp.Stats.TotalSessions = len(sessions)
+
+	now := time.Now()
+	today := time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, now.Location())
+
+	platformCounts := make(map[string]int)
+	browserCounts := make(map[string]int)
+
+	totalPageViews := 0
+	for _, session := range sessions {
+		totalPageViews += session.RequestCount
+
+		if session.IsBot {
+			resp.Stats.BotSessions++
+		} else {
+			resp.Stats.HumanSessions++
+		}
+
+		if session.IsMobile {
+			resp.Stats.MobileSessions++
+		} else {
+			resp.Stats.DesktopSessions++
+		}
+
+		if session.StartTime.After(today) {
+			resp.Stats.TodaySessions++
+		}
+
+		platformCounts[session.Platform]++
+		browserCounts[session.Browser]++
+	}
+
+	for _, visit := range visits {
+		if visit.Timestamp.After(today) {
+			resp.Stats.TodayVisits++
+		}
+	}
+
+	if len(sessions) > 0 {
+		resp.Stats.AveragePageViews = float64(totalPageViews) / float64(len(sessions))
+	}
+
+	for platform, count := range platformCounts {
+		resp.Stats.TopPlatforms = append(resp.Stats.TopPlatforms, PlatformCount{
+			Platform: platform,
+			Count:    count,
+		})
+	}
+
+	for browser, count := range browserCounts {
+		resp.Stats.TopBrowsers = append(resp.Stats.TopBrowsers, BrowserCount{
+			Browser: browser,
+			Count:   count,
+		})
+	}
+
+	return
+}
+
+type PageCount struct {
+	Path  string
+	Count int
+}
+
+type TopPagesResponse struct {
+	Pages []PageCount
+}
+
+func GetTopPages(ctx *vbeam.Context, req vbeam.Empty) (resp TopPagesResponse, err error) {
+	visits := GetAllVisits(ctx.Tx)
+	pageCounts := make(map[string]int)
+
+	for _, visit := range visits {
+		pageCounts[visit.Path]++
+	}
+
+	for path, count := range pageCounts {
+		resp.Pages = append(resp.Pages, PageCount{
+			Path:  path,
+			Count: count,
+		})
+	}
+
+	return
+}
+
+type ReferrerCount struct {
+	Referrer string
+	Count    int
+}
+
+type ReferrerStatsResponse struct {
+	Referrers []ReferrerCount
+}
+
+func GetReferrerStats(ctx *vbeam.Context, req vbeam.Empty) (resp ReferrerStatsResponse, err error) {
+	visits := GetAllVisits(ctx.Tx)
+	referrerCounts := make(map[string]int)
+
+	for _, visit := range visits {
+		referrer := visit.Referrer
+		if referrer == "" {
+			referrer = "Direct"
+		}
+		referrerCounts[referrer]++
+	}
+
+	for referrer, count := range referrerCounts {
+		resp.Referrers = append(resp.Referrers, ReferrerCount{
+			Referrer: referrer,
+			Count:    count,
+		})
+	}
+
 	return
 }

@@ -21,7 +21,6 @@ func OpenDB(dbpath string) *vbolt.DB {
 }
 
 func MakeApplication() *vbeam.Application {
-	vbeam.RunBackServer(cfg.Backport)
 	db := OpenDB(cfg.DBPath)
 	var app = vbeam.NewApplication("ResumeSite", db)
 	backend.RegisterResumeRoutes(app)

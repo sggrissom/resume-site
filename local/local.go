@@ -20,6 +20,7 @@ const FEDist = ".serve/frontend"
 func StartLocalServer() {
 	defer vbeam.NiceStackTraceOnPanic()
 
+	vbeam.RunBackServer(cfg.Backport)
 	app := resume.MakeApplication()
 	app.Frontend = os.DirFS(FEDist)
 	app.StaticData = os.DirFS(cfg.StaticDir)

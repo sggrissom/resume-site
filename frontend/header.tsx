@@ -59,6 +59,11 @@ export const Header = ({ isHome }: { isHome: boolean }) => {
             </a>
           </li>
           <li>
+            <a href="/analytics">
+              Analytics
+            </a>
+          </li>
+          <li>
             <a
               href="https://github.com/sggrissom"
               target="_blank"

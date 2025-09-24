@@ -20,6 +20,18 @@ export interface SessionsResponse {
     Sessions: Session[]
 }
 
+export interface SessionStatsResponse {
+    Stats: SessionStats
+}
+
+export interface TopPagesResponse {
+    Pages: PageCount[]
+}
+
+export interface ReferrerStatsResponse {
+    Referrers: ReferrerCount[]
+}
+
 export interface ExperienceResponse {
     Company: string
     Role: string
@@ -61,6 +73,40 @@ export interface Session {
     Browser: string
 }
 
+export interface SessionStats {
+    TotalVisits: number
+    TotalSessions: number
+    HumanSessions: number
+    BotSessions: number
+    MobileSessions: number
+    DesktopSessions: number
+    AveragePageViews: number
+    TodayVisits: number
+    TodaySessions: number
+    TopPlatforms: PlatformCount[]
+    TopBrowsers: BrowserCount[]
+}
+
+export interface PageCount {
+    Path: string
+    Count: number
+}
+
+export interface ReferrerCount {
+    Referrer: string
+    Count: number
+}
+
+export interface PlatformCount {
+    Platform: string
+    Count: number
+}
+
+export interface BrowserCount {
+    Browser: string
+    Count: number
+}
+
 export async function GetResume(data: Empty): Promise<rpc.Response<ResumeResponse>> {
     return await rpc.call<ResumeResponse>('GetResume', JSON.stringify(data));
 }
@@ -71,5 +117,17 @@ export async function GetVisits(data: Empty): Promise<rpc.Response<VisitsRespons
 
 export async function GetSessions(data: Empty): Promise<rpc.Response<SessionsResponse>> {
     return await rpc.call<SessionsResponse>('GetSessions', JSON.stringify(data));
+}
+
+export async function GetSessionStats(data: Empty): Promise<rpc.Response<SessionStatsResponse>> {
+    return await rpc.call<SessionStatsResponse>('GetSessionStats', JSON.stringify(data));
+}
+
+export async function GetTopPages(data: Empty): Promise<rpc.Response<TopPagesResponse>> {
+    return await rpc.call<TopPagesResponse>('GetTopPages', JSON.stringify(data));
+}
+
+export async function GetReferrerStats(data: Empty): Promise<rpc.Response<ReferrerStatsResponse>> {
+    return await rpc.call<ReferrerStatsResponse>('GetReferrerStats', JSON.stringify(data));
 }
 

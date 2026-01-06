@@ -19,7 +19,7 @@ build:
 	@echo "Building $(BINARY_NAME)..."
 	mkdir -p $(BUILD_DIR)
 	GOOS=$(GOOS) GOARCH=$(GOARCH) CGO_ENABLED=$(CGO_ENABLED) \
-	  go build -ldflags="-s -w" \
+	  go build -tags=release -ldflags="-s -w" \
 	    -o $(BUILD_DIR)/$(BINARY_NAME) release/release.go
 
 deploy: build

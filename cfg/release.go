@@ -3,5 +3,5 @@
 package cfg
 
 const IsRelease = true
-const DBPath = "data/db.bolt"
+const DBPath = "/srv/apps/resume/shared/data/db.bolt"
 const StaticDir = "static/"

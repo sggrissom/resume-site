@@ -25,6 +25,12 @@ func MakeApplication() *vbeam.Application {
 	var app = vbeam.NewApplication("ResumeSite", db)
 	backend.RegisterResumeRoutes(app)
 	backend.RegisterVisitRoutes(app)
+
+	app.HandleFunc("GET /healthz", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte("ok"))
+	})
+
 	return app
 }
 

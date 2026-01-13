@@ -41,7 +41,7 @@ func LogRequestsMiddleware(app *vbeam.Application) http.Handler {
 		ref := r.Referer()
 		path := r.URL.Path
 
-		if path != "/visits" && path != "/favicon.ico" && !strings.HasPrefix(path, "/static") {
+		if path != "/visits" && path != "/favicon.ico" && path != "/healthz" && !strings.HasPrefix(path, "/static") {
 			go logRequestToDB(app.DB, ip, ua, ref, path) // do this async so it doesn't block
 		}
 

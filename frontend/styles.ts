@@ -426,12 +426,180 @@ block(`
 `);
 
 block(`
+@media (min-width: 840px) {
+  .build-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ai-section {
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: start;
+  }
+}
+`);
+
+block(`
 .card {
   margin-top: 6px;
   padding: 16px;
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 12px;
+}
+`);
+
+block(`
+.section-intro {
+  margin: 0 0 16px;
+  color: var(--hero);
+  line-height: 1.6;
+}
+`);
+
+block(`
+.build-grid {
+  display: grid;
+  gap: 16px;
+}
+`);
+
+block(`
+.build-card {
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+}
+`);
+
+block(`
+.build-card h4 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+`);
+
+block(`
+.build-card p {
+  margin: 0 0 12px;
+  color: var(--hero);
+  line-height: 1.6;
+}
+`);
+
+block(`
+.build-card ul {
+  margin: 0 0 0 18px;
+  color: var(--hero);
+  line-height: 1.6;
+}
+`);
+
+block(`
+.project-grid {
+  display: grid;
+  gap: 16px;
+}
+`);
+
+block(`
+.project-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--card-bg);
+  display: grid;
+  gap: 12px;
+}
+`);
+
+block(`
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background: #0b1118;
+}
+`);
+
+block(`
+.project-card h4 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  padding: 0 16px;
+}
+`);
+
+block(`
+.project-card p {
+  margin: 0;
+  padding: 0 16px;
+  color: var(--hero);
+  line-height: 1.6;
+}
+`);
+
+block(`
+.project-meta {
+  display: block;
+  margin: 12px 16px 16px;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+`);
+
+block(`
+.ai-section {
+  display: grid;
+  gap: 18px;
+}
+`);
+
+block(`
+.ai-section p {
+  margin: 0 0 12px;
+  color: var(--hero);
+  line-height: 1.6;
+}
+`);
+
+block(`
+.ai-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--hero);
+  line-height: 1.6;
+}
+`);
+
+block(`
+.ai-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  background: var(--card-bg);
+}
+`);
+
+block(`
+.ai-card h4 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+`);
+
+block(`
+.ai-card ol {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--hero);
+  line-height: 1.6;
 }
 `);
 

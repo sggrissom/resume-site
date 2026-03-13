@@ -21,6 +21,8 @@ export function view(
       <main id="app" class="app">
         <Hero />
         <Highlights />
+        <Projects />
+        <AIBlurb />
         <Contact />
       </main>
       <Footer />
@@ -82,7 +84,7 @@ const Blurb = () => (
 const Highlights = () => (
   <section className="section split">
     <div className="card">
-      <h3>Highlights</h3>
+      <h3>Professional Highlights</h3>
       <ul>
         <li>
           Architected a Java-based backend automation pipeline to sync user
@@ -119,6 +121,84 @@ const Highlights = () => (
   </section>
 );
 
+const Projects = () => (
+  <section className="section">
+    <h3>Personal Projects</h3>
+    <div className="projects-grid">
+      <div className="card">
+        <h4>Turn Taker</h4>
+        <p className="card-desc">
+          A small handheld embedded device built for my daughters to track
+          whose turn it is to sit in the front seat. It maintains a
+          score-based system that adjusts when a user defers or takes
+          consecutive turns, and displays the current state on a small OLED
+          screen.
+        </p>
+        <p className="card-section-label">Hardware</p>
+        <ul className="card-list">
+          <li>Microcontroller: Raspberry Pi Pico (RP2040)</li>
+          <li>Display: 128×64 I²C OLED module</li>
+          <li>Inputs: Two tactile push buttons + slide power switch</li>
+          <li>Power: Single-cell LiPo with boost converter (5 V)</li>
+          <li>PCB: Custom circular two-layer board designed in KiCad</li>
+        </ul>
+        <p className="card-section-label">Mechanical</p>
+        <p className="card-desc">
+          Enclosed in a 3D-printed handheld case with cutouts for the screen,
+          buttons, and power switch, and internal space for the battery and
+          wiring.
+        </p>
+        <div className="badges">
+          <span className="badge">C++</span>
+          <span className="badge">Embedded</span>
+          <span className="badge">KiCad</span>
+        </div>
+      </div>
+
+      <div className="card">
+        <h4>Resume Site</h4>
+        <p className="card-desc">
+          This site — a minimalist, performance-conscious architecture that avoids heavy framework and database defaults in 
+          favor of a smaller UI layer and application-managed persistence. Aiming for speed, small bundles, no bloat.
+          Still some neat parts, like a parser so the Resume page always matches what's in my actual resume document.
+        </p>
+        <div className="badges">
+          <span className="badge">Go</span>
+          <span className="badge">TypeScript</span>
+          <span className="badge">Preact</span>
+        </div>
+        <a
+          href="https://github.com/sggrissom/resume-site"
+          className="card-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View →
+        </a>
+      </div>
+
+      <div className="card">
+        <h4>Another Project</h4>
+        <p className="card-desc">
+          describe another project
+        </p>
+        <div className="badges">
+          <span className="badge">something</span>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const AIBlurb = () => (
+  <section className="section">
+    <h3>On AI</h3>
+    <p className="section-body">
+      AI is now ubiquotous in my profession. I feel like no one knows what the future holds, should I become a carpenter? (the answer is no)
+    </p>
+  </section>
+);
+
 const Contact = () => (
   <section className="section">
     <h3>Contact</h3>
@@ -151,8 +231,6 @@ const Contact = () => (
 
 const Footer = () => (
   <footer className="site-footer">
-    <p>
-      © <span id="year">2025</span> Steven Grissom. All rights reserved.
-    </p>
+    <p>© {new Date().getFullYear()} Steven Grissom. All rights reserved.</p>
   </footer>
 );

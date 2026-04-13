@@ -10,6 +10,7 @@ export interface ResumeResponse {
     Experience: ExperienceResponse[]
     Skills: SkillResponse
     Education: EducationResponse
+    Projects: ProjectResponse[]
 }
 
 export interface VisitsResponse {
@@ -49,6 +50,12 @@ export interface EducationResponse {
     School: string
     Degree: string
     Period: string
+}
+
+export interface ProjectResponse {
+    Title: string
+    Tech: string
+    Bullets: string[]
 }
 
 export interface Visit {

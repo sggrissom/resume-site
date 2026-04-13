@@ -33,6 +33,12 @@ type EducationResponse struct {
 	Period string
 }
 
+type ProjectResponse struct {
+	Title   string
+	Tech    string
+	Bullets []string
+}
+
 type ResumeResponse struct {
 	Name       string
 	Title      string
@@ -40,6 +46,7 @@ type ResumeResponse struct {
 	Experience []ExperienceResponse
 	Skills     SkillResponse
 	Education  EducationResponse
+	Projects   []ProjectResponse
 }
 
 func RegisterResumeRoutes(app *vbeam.Application) {
@@ -88,6 +95,7 @@ func ParseResumeTxt(r io.Reader) (resp ResumeResponse, err error) {
 	scanner := bufio.NewScanner(r)
 	var section string
 	var currentExp *ExperienceResponse
+	var currentProject *ProjectResponse
 
 	for scanner.Scan() {
 		line := strings.TrimSpace(scanner.Text())
@@ -96,7 +104,18 @@ func ParseResumeTxt(r io.Reader) (resp ResumeResponse, err error) {
 		}
 		switch strings.ToLower(line) {
 		case "summary", "skills", "experience", "education":
+			if currentExp != nil {
+				resp.Experience = append(resp.Experience, *currentExp)
+				currentExp = nil
+			}
 			section = strings.ToLower(line)
+			continue
+		case "selected projects":
+			if currentExp != nil {
+				resp.Experience = append(resp.Experience, *currentExp)
+				currentExp = nil
+			}
+			section = "projects"
 			continue
 		}
 
@@ -135,10 +154,22 @@ func ParseResumeTxt(r io.Reader) (resp ResumeResponse, err error) {
 				resp.Education.Degree = strings.TrimSpace(degree)
 				resp.Education.Period = strings.TrimSpace(period)
 			}
+		case "projects":
+			if strings.HasPrefix(line, "*") && currentProject != nil {
+				currentProject.Bullets = append(currentProject.Bullets, strings.TrimSpace(strings.TrimPrefix(line, "*")))
+			} else {
+				if currentProject != nil {
+					resp.Projects = append(resp.Projects, *currentProject)
+				}
+				currentProject = parseProjectHeader(line)
+			}
 		}
 	}
 	if currentExp != nil {
 		resp.Experience = append(resp.Experience, *currentExp)
+	}
+	if currentProject != nil {
+		resp.Projects = append(resp.Projects, *currentProject)
 	}
 	return resp, scanner.Err()
 }
@@ -163,6 +194,16 @@ func splitRight(s, delim string) (string, string) {
 		return s[:i], s[i+len(delim):]
 	}
 	return s, ""
+}
+
+func parseProjectHeader(line string) *ProjectResponse {
+	title, rest := splitOnce(line, " (")
+	tech := strings.TrimSuffix(strings.TrimSpace(rest), ")")
+	return &ProjectResponse{
+		Title:   strings.TrimSpace(title),
+		Tech:    tech,
+		Bullets: []string{},
+	}
 }
 
 func parseExperienceHeader(line string) *ExperienceResponse {

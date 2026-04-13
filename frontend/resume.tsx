@@ -19,6 +19,7 @@ export function view(
         <div className="resume">
           <Summary data={data} />
           <Experience data={data} />
+          <Projects data={data} />
           <div className="section split">
             <Skills data={data} />
             <Education data={data} />
@@ -94,6 +95,25 @@ const Skills: FunctionalComponent<ResumeProps> = ({ data }) => (
       ))}
       {data.Skills.Tools.map((skill) => (
         <span className="badge">{skill}</span>
+      ))}
+    </div>
+  </div>
+);
+
+const Projects: FunctionalComponent<ResumeProps> = ({ data }) => (
+  <div className="section">
+    <h3>Selected Projects</h3>
+    <div className="projects-grid">
+      {data.Projects.map((project) => (
+        <div className="card">
+          <strong>{project.Title}</strong>
+          <p className="card-desc">{project.Tech}</p>
+          <ul className="card-list">
+            {project.Bullets.map((bullet) => (
+              <li>{bullet}</li>
+            ))}
+          </ul>
+        </div>
       ))}
     </div>
   </div>

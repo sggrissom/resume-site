@@ -3,44 +3,59 @@ sggrissom@gmail.com | steven.grissom.zone
 
 
 Summary
-Senior Software Engineer with 11+ years building full‑stack systems and owning features end‑to‑end, from ideation through day‑to‑day support. Deep expertise in backend architecture (Java, PHP, C#), distributed workflows, and performance‑critical services, with frontend work in React/TypeScript. Experienced operating and scaling live production systems, debugging complex issues in large codebases, and collaborating with cross‑functional partners to deliver user‑focused solutions.
+Senior Software Engineer with 12+ years of experience designing and building backend systems and full-stack applications, with a focus on asynchronous workflows, distributed processing, and performance-critical services, including real-time and data-intensive systems. Experienced in architecting and operating production systems, optimizing data pipelines, and making pragmatic infrastructure and cost tradeoffs. Strong background across Java, C#, and PHP, with frontend experience in React/TypeScript.
 
 
 Skills
 Languages: Java, C#, Javascript, Typescript, PHP, C, C++
-Tools: React, Elasticsearch, Solr, Lucene, AWS, Zend, RabbitMQ, Kibana, Spring Boot
+Tools: Spring Boot, React, Elasticsearch, Solr, Lucene, RabbitMQ, AWS, Kibana
 
 
 Experience
 Senior Software Engineer, Veeva Systems Inc – Pleasanton, CA (Remote)        Jan 2023 – Present
-* Acted as a Java, backend-focused technical lead for full-stack feature development on a B2B learning platform, focusing on asynchronous job processing, system integration, and reliable data workflows.
-* Led implementation of an automation system in Java that syncs user and training profiles, eliminating manual setup and ensuring training eligibility is maintained across user lifecycle events.
-* Developed backend logic to support global GCP training auto-completion by querying a multi-tenant registry and retrieving certificates from a shared S3 bucket, reducing redundant training across customers.
-* Delivered a rule-based curriculum outcome system from end to end, with frontend configuration in React and backend async handling, laying the groundwork for extensible training automation.
-* Investigate and resolve production issues as part of on-call rotation, using distributed log tracing and service-level debugging to identify and resolve issues impacting customers.
-* Collaborate with product managers, QA, and designers to scope features and ensure architectural alignment with platform goals.
-* Mentor junior developers, review code, give team-level technical presentations, and help shape architecture during sprint planning and implementation.
+* Act as a backend-focused technical lead for a multi-tenant B2B learning platform, designing asynchronous workflows and data pipelines to support large-scale training automation
+* Designed and implemented an event-driven automation system to synchronize user and training profiles across lifecycle events, eliminating manual setup and ensuring consistency at scale
+* Built backend services to support global GCP certification auto-completion, integrating with shared S3 storage and multi-tenant registries to prevent redundant training across customers
+* Delivered a rule-based curriculum outcome system with React configuration and async backend processing, enabling extensible automation of training requirements
+* Investigate and resolve production issues using distributed logging and service-level debugging in a multi-service environment
+* Mentor engineers, review architecture, and guide implementation decisions across the team
+
+
 
 
 Senior Software Developer, Paycom – Oklahoma City, OK        Sep 2016 – Dec 2022
-* Contributed to a high-volume Applicant Tracking System within Paycom’s HR software suite, delivering full-stack features across candidate search, requisition workflows, and offer management. Focused on performance, maintainability, and system reliability while leading cross-team initiatives from prototype to production.
-* Prototyped and led development of a high-performance resume search engine using Elasticsearch, reducing query times from 30+ seconds to under 100ms. Designed a custom C# sync service to keep 7 million+ search data records in sync with MySQL in a predominantly PHP-based ecosystem.
-* Delivered a large-scale offer letter management system with templating, approval workflows, and PDF generation. Integrated with payroll and onboarding systems by collaborating across multiple product teams to ensure data consistency and automation.
-* Introduced fast, custom unit testing frameworks (C#, PHP, React) to accelerate developer feedback loops, cutting suite runtime from over a minute to under 5 seconds and promoting test-driven development.
-* Migrated legacy frontend features to React and RESTful APIs to support mobile compatibility and improved UI performance.
-* Mentored junior developers, authored technical documentation, and served as technical lead on cross-team projects through all phases of planning, implementation, and delivery.
+* Led development of a high-performance resume search system using Elasticsearch, reducing query latency from 30+ seconds to under 100ms across 7M+ records
+* Designed and implemented a C# synchronization service to maintain consistency between MySQL and search indices in a PHP-based ecosystem
+* Delivered an offer letter management platform with templating, approval workflows, and PDF generation, integrating across payroll and onboarding systems
+* Built custom testing frameworks (C#, PHP, React) that reduced test runtime from 60+ seconds to under 5 seconds, significantly improving developer feedback cycles
+* Migrated legacy frontend systems to React and REST APIs to support mobile clients and improve performance
+* Served as technical lead on cross-team initiatives, mentoring engineers and driving architecture decisions from design through production
 
 
 
 
 Electrical Engineer, Federal Aviation Administration – Oklahoma City, OK        Aug 2014 – Jul 2016
-* Contributed to the operation and support of the ASDE-X radar system, a real-time, high-reliability FAA program deployed at major U.S. airports to track aircraft and ground vehicles, enhancing safety and efficiency in air traffic management.
+* Contributed to the operation and support of the ASDE-X radar system, a real-time, high-reliability FAA program used at major U.S. airports to track aircraft and ground vehicles.
 * Built a high-speed C++ application to parse fault logs, reducing processing time from 2 minutes to under 1 second, adopted by 8–10 engineers.
 
 
 Computer Programmer, K20 Center – Norman, OK        Aug 2012 – July 2014
 * Developed a native iPad app in Objective-C for school administrators, distributed via the App Store.
 * Built and maintained PHP/JavaScript web applications to support educational programs.
+
+
+Selected Projects
+Live Streaming Platform (Go, SRS, FFmpeg)
+* Designed a low-cost live streaming architecture (RTSP → FFmpeg → RTMP → SRS → HLS) supporting multi-room studio setups and browser playback
+* Modeled infrastructure and bandwidth costs, optimizing for VPS-based deployment over managed CDN solutions
+* Implemented role-based access control and real-time stream status updates via SSE
+* Evaluated VPS vs CDN deployment strategies based on bandwidth and cost constraints
+
+
+Family Portal & iOS Companion App (Go, Preact, Swift)
+* Built a full-stack system for managing family data (photos, measurements, milestones) with tagging, image processing, and visualization
+* Designed local-first sync model for iOS client with eventual consistency to backend services
+* Implemented background job processing for image transformation and metadata extraction
 
 
 Education

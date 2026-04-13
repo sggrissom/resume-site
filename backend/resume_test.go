@@ -70,3 +70,38 @@ Some University – BS in Computer Engineering         2010
 		t.Errorf("skills section doesn't match.\nGot: %+v\nWant: %+v", actual.Skills, expected.Skills)
 	}
 }
+
+func TestParseResumeTxt_Projects(t *testing.T) {
+	input := `
+Steven Grissom
+Senior Software Engineer
+
+Selected Projects
+Cool Project (Go, React)
+* Did something cool.
+* Did another thing.
+
+Another Project (Python)
+* Built a thing.
+`
+
+	actual, err := ParseResumeTxt(strings.NewReader(input))
+	if err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+
+	if len(actual.Projects) != 2 {
+		t.Fatalf("expected 2 projects, got %d: %+v", len(actual.Projects), actual.Projects)
+	}
+
+	p := actual.Projects[0]
+	if p.Title != "Cool Project" {
+		t.Errorf("project title: got %q, want %q", p.Title, "Cool Project")
+	}
+	if p.Tech != "Go, React" {
+		t.Errorf("project tech: got %q, want %q", p.Tech, "Go, React")
+	}
+	if len(p.Bullets) != 2 {
+		t.Errorf("expected 2 bullets, got %d", len(p.Bullets))
+	}
+}

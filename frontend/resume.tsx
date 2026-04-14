@@ -14,7 +14,7 @@ export function view(
 ): preact.ComponentChild {
   return (
     <div>
-      <Header isHome={false} />
+      <Header activePage="resume" />
       <main id="app" class="app">
         <div className="resume">
           <Summary data={data} />

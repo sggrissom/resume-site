@@ -24,7 +24,7 @@ const useHeader = vlens.declareHook((): HeaderData => {
   };
 });
 
-export const Header = ({ isHome }: { isHome: boolean }) => {
+export const Header = ({ activePage }: { activePage: "home" | "resume" | "projects" }) => {
   const headerData = useHeader();
   const themeRef = vlens.ref(headerData, "theme");
   const menuRef = vlens.ref(headerData, "isMenuOpen");
@@ -49,12 +49,17 @@ export const Header = ({ isHome }: { isHome: boolean }) => {
           id="navLinks"
         >
           <li>
-            <a href="/" className={isHome ? "active" : ""}>
+            <a href="/" className={activePage === "home" ? "active" : ""}>
               Home
             </a>
           </li>
           <li>
-            <a href="/resume-page" className={!isHome ? "active" : ""}>
+            <a href="/projects" className={activePage === "projects" ? "active" : ""}>
+              Projects
+            </a>
+          </li>
+          <li>
+            <a href="/resume-page" className={activePage === "resume" ? "active" : ""}>
               Resume
             </a>
           </li>

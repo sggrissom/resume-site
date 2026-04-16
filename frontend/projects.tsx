@@ -2,6 +2,7 @@ import * as preact from "preact";
 import * as rpc from "vlens/rpc";
 import * as vlens from "vlens";
 import { Header } from "./header";
+import { DanceCaseStudy } from "./dance";
 
 type Project = {
   slug: string;
@@ -24,6 +25,13 @@ const PROJECTS: Project[] = [
     summary:
       "This site — a minimalist, performance-conscious architecture using Go and Preact. Covers the design decisions around avoiding heavy framework defaults, managing persistence, and keeping bundles small.",
     tags: ["Go", "TypeScript", "Preact"],
+  },
+  {
+    slug: "live-streaming",
+    title: "Live Streaming Platform",
+    summary:
+      "Low-cost multi-room streaming system for dance studios using Go, SRS, and FFmpeg. Supports RTSP cameras and mobile ingest via HLS delivery.",
+    tags: ["Go", "FFmpeg", "HLS", "SRS"],
   },
 ];
 
@@ -118,7 +126,11 @@ const DetailPage = ({
               <span className="badge">{tag}</span>
             ))}
           </div>
-          <p className="muted">Case study coming soon.</p>
+          {project.slug === "live-streaming" ? (
+            <DanceCaseStudy />
+          ) : (
+            <p className="muted">Case study coming soon.</p>
+          )}
         </section>
       </main>
     </div>

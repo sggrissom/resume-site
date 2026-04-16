@@ -13,6 +13,13 @@ type Project = {
   tags: string[];
 };
 
+type AdditionalProject = {
+  title: string;
+  tech: string;
+  summary: string;
+  github: string;
+};
+
 const PROJECTS: Project[] = [
   {
     slug: "live-streaming",
@@ -34,6 +41,37 @@ const PROJECTS: Project[] = [
     summary:
       "Full-stack system for managing family photos, growth measurements, and milestones. Includes a Go backend, Preact web frontend, and a native iOS app with local-first sync.",
     tags: ["Go", "Preact", "iOS", "Swift"],
+  },
+];
+
+const ADDITIONAL_PROJECTS: AdditionalProject[] = [
+  {
+    title: "Tiny Server Helper",
+    tech: "Rust",
+    summary:
+      "Opinionated VPS deployment and observability toolkit featuring versioned releases with symlink-based rollouts, systemd-managed services, and a custom monitoring server with a TUI for real-time process and resource inspection.",
+    github: "https://github.com/sggrissom/tiny-server-helper",
+  },
+  {
+    title: "Chess Analysis Tool",
+    tech: "Go, Stockfish",
+    summary:
+      "Processes chess.com game history and analyzes performance by opening and position, using background jobs and engine evaluation.",
+    github: "https://github.com/sggrissom/chess-stats",
+  },
+  {
+    title: "Raylib Games",
+    tech: "Odin",
+    summary:
+      "Small experimental games focused on rendering, animation systems, and input handling using Raylib and Odin.",
+    github: "https://github.com/sggrissom/action-game",
+  },
+  {
+    title: "8086 Instruction Decoder",
+    tech: "C",
+    summary:
+      "Low-level implementation of an instruction decoder for x86 (8086), exploring binary formats and CPU-level parsing.",
+    github: "https://github.com/sggrissom/8086sim",
   },
 ];
 
@@ -65,7 +103,7 @@ const ListPage = ({ projects }: { projects: Project[] }) => (
     <Header activePage="projects" />
     <main id="app" class="app">
       <section className="section">
-        <h2>Projects</h2>
+        <h2>Selected Projects</h2>
         <div className="projects-grid">
           {projects.map((p) => (
             <div className="card">
@@ -78,6 +116,21 @@ const ListPage = ({ projects }: { projects: Project[] }) => (
               </div>
               <a href={`/projects/${p.slug}`} className="card-link">
                 Read case study →
+              </a>
+            </div>
+          ))}
+        </div>
+        <h3 style="margin-top: 40px;">Additional Projects</h3>
+        <div className="additional-projects">
+          {ADDITIONAL_PROJECTS.map((p) => (
+            <div className="additional-project">
+              <div>
+                <span style="font-weight: 600;">{p.title}</span>
+                <span className="muted"> ({p.tech})</span>
+              </div>
+              <p className="card-desc">{p.summary}</p>
+              <a href={p.github} target="_blank" rel="noopener noreferrer" className="card-link">
+                GitHub →
               </a>
             </div>
           ))}

@@ -606,6 +606,23 @@ block(`
 `);
 
 block(`
+.additional-projects {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 12px;
+}
+`);
+
+block(`
+.additional-project {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+`);
+
+block(`
 .section-body {
   margin: 0;
   line-height: 1.6;

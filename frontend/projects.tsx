@@ -4,6 +4,7 @@ import * as vlens from "vlens";
 import { Header } from "./header";
 import { DanceCaseStudy } from "./dance";
 import { FamilyCaseStudy } from "./family";
+import { TurnTakerCaseStudy } from "./turn";
 
 type Project = {
   slug: string;
@@ -24,7 +25,7 @@ const PROJECTS: Project[] = [
     slug: "turn-taker",
     title: "Turn Taker",
     summary:
-      "A handheld embedded device. Custom PCB, 3D-printed enclosure, microcontroller, and hand built UI displayed on an OLED screen.",
+      "A handheld hardware device for settling who sits in the front seat. Custom PCB, 3D-printed enclosure, microcontroller, and a hand-built UI on an OLED screen.",
     tags: ["C++", "Embedded", "KiCad"],
   },
   {
@@ -128,6 +129,8 @@ const DetailPage = ({
             <DanceCaseStudy />
           ) : project.slug === "family-portal" ? (
             <FamilyCaseStudy />
+          ) : project.slug === "turn-taker" ? (
+            <TurnTakerCaseStudy />
           ) : (
             <p className="muted">Case study coming soon.</p>
           )}

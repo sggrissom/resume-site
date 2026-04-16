@@ -3,6 +3,7 @@ import * as rpc from "vlens/rpc";
 import * as vlens from "vlens";
 import { Header } from "./header";
 import { DanceCaseStudy } from "./dance";
+import { FamilyCaseStudy } from "./family";
 
 type Project = {
   slug: string;
@@ -13,25 +14,25 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
+    slug: "live-streaming",
+    title: "Dance Class Live Streaming Platform",
+    summary:
+      "Multi-room streaming system for dance studios using Go, SRS, and FFmpeg. Supports RTSP cameras and mobile ingest via HLS delivery.",
+    tags: ["Go", "FFmpeg", "HLS", "SRS"],
+  },
+  {
     slug: "turn-taker",
     title: "Turn Taker",
     summary:
-      "A small handheld embedded device built for my daughters to track whose turn it is to sit in the front seat. Custom PCB, 3D-printed enclosure, and a score-based system displayed on an OLED screen.",
+      "A handheld embedded device. Custom PCB, 3D-printed enclosure, microcontroller, and hand built UI displayed on an OLED screen.",
     tags: ["C++", "Embedded", "KiCad"],
   },
   {
-    slug: "resume-site",
-    title: "Resume Site",
+    slug: "family-portal",
+    title: "Family Portal & iOS App",
     summary:
-      "This site — a minimalist, performance-conscious architecture using Go and Preact. Covers the design decisions around avoiding heavy framework defaults, managing persistence, and keeping bundles small.",
-    tags: ["Go", "TypeScript", "Preact"],
-  },
-  {
-    slug: "live-streaming",
-    title: "Live Streaming Platform",
-    summary:
-      "Low-cost multi-room streaming system for dance studios using Go, SRS, and FFmpeg. Supports RTSP cameras and mobile ingest via HLS delivery.",
-    tags: ["Go", "FFmpeg", "HLS", "SRS"],
+      "Full-stack system for managing family photos, growth measurements, and milestones. Includes a Go backend, Preact web frontend, and a native iOS app with local-first sync.",
+    tags: ["Go", "Preact", "iOS", "Swift"],
   },
 ];
 
@@ -64,9 +65,6 @@ const ListPage = ({ projects }: { projects: Project[] }) => (
     <main id="app" class="app">
       <section className="section">
         <h2>Projects</h2>
-        <p className="section-body">
-          projects
-        </p>
         <div className="projects-grid">
           {projects.map((p) => (
             <div className="card">
@@ -128,6 +126,8 @@ const DetailPage = ({
           </div>
           {project.slug === "live-streaming" ? (
             <DanceCaseStudy />
+          ) : project.slug === "family-portal" ? (
+            <FamilyCaseStudy />
           ) : (
             <p className="muted">Case study coming soon.</p>
           )}

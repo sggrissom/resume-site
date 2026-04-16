@@ -27,11 +27,11 @@ export const DanceCaseStudy = () => (
     <p>Existing solutions tend to be expensive or poorly suited for low-concurrency, multi-room setups.</p>
     <p>The system was designed around:</p>
     <ul>
-      <li>Cost sensitivity — avoid per-viewer pricing; prefer fixed-cost infrastructure</li>
-      <li>Typical usage — 5–10 viewers per room, occasional event spikes</li>
-      <li>Multi-room support — 3–5 concurrent streams per studio</li>
-      <li>Bandwidth control — avoid always-on upstream streaming</li>
-      <li>Simple deployment — run on a single VPS</li>
+      <li>Fixed infrastructure costs, no per-viewer pricing</li>
+      <li>Small audiences per room (5–10 viewers), with occasional event spikes</li>
+      <li>3–5 concurrent streams per studio</li>
+      <li>No always-on upstream streaming from cameras</li>
+      <li>Single VPS, minimal moving parts</li>
     </ul>
 
     <h3>System Design</h3>

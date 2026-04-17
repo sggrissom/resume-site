@@ -18,7 +18,7 @@ export function view(
   return (
     <div>
       <Header activePage="home" />
-      <main id="app" class="app">
+      <main id="app" className="app">
         <Hero />
         <Highlights />
         <ProjectsTeaser />
@@ -73,9 +73,7 @@ const Hero = () => (
 const Blurb = () => (
   <section className="blurb">
     <p>
-      Welcome! I’m a husband, father, gardener, and home cook. I also happen to
-      love programming, especially building systems that are fast, reliable, and
-      well-architected.
+      I’m a senior software engineer with experience building backend systems, distributed workflows, and performant applications. I enjoy designing software that is reliable, efficient, and simple to operate.
     </p>
   </section>
 );
@@ -86,31 +84,25 @@ const Highlights = () => (
       <h3>Professional Highlights</h3>
       <ul>
         <li>
-          Architected a Java-based backend automation pipeline to sync user
-          profiles and auto-complete GCP trainings for thousands of learners
-          across 200+ global tenants
+          Architected a Java-based automation pipeline to synchronize user profiles and automate GCP training completion across 200+ global tenants
         </li>
-
         <li>
-          Engineered a C#/.NET Elasticsearch service, indexing 7 million+
-          applications with sub-200 ms query latency
+          Built an Elasticsearch-backed C# service indexing 7M+ applications with sub-200 ms query latency
         </li>
-
         <li>
-          Built a high-speed C++ parser for multi-gigabyte fault-log files,
-          reducing processing time from 2 minutes to under 1 second
+          Developed a high-speed C++ parser for large fault-log files, reducing processing time from 2 minutes to under 1 second
         </li>
       </ul>
     </div>
 
     <div className="card">
       <h3>Core Stack</h3>
-      <div class="badges">
+      <div className="badges">
         <span className="badge">Java</span>
         <span className="badge">TypeScript</span>
         <span className="badge">JavaScript</span>
         <span className="badge">React</span>
-        <span className="badge">MySQL</span>
+        <span className="badge">Go</span>
         <span className="badge">AWS</span>
         <span className="badge">C#</span>
         <span className="badge">C++</span>
@@ -124,7 +116,7 @@ const ProjectsTeaser = () => (
   <section className="section">
     <h3>Projects</h3>
     <p className="section-body">
-      A few things I've built
+      Case studies and side projects spanning real-time streaming, full-stack applications, and embedded hardware.
     </p>
     <a className="btn" href="/projects">
       View projects →

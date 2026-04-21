@@ -1,61 +1,64 @@
 ﻿Steven Grissom
-sggrissom@gmail.com | steven.grissom.zone
+sggrissom@gmail.com | stevengrissom.com
 
 
 Summary
-Senior Software Engineer with 12+ years of experience designing and building backend systems and full-stack applications, with a focus on asynchronous workflows, distributed processing, and performance-critical services, including real-time and data-intensive systems. Experienced in architecting and operating production systems, optimizing data pipelines, and making pragmatic infrastructure and cost tradeoffs. Strong background across Java, C#, and PHP, with frontend experience in React/TypeScript.
+Senior Software Engineer with 12+ years of experience building backend systems and full-stack applications. Focused on distributed systems, asynchronous processing, and performance-sensitive services, including real-time workloads. Experienced in designing and operating production systems, improving data pipelines, and making pragmatic infrastructure and cost tradeoffs.
 
 
 Skills
-Languages: Java, C#, Javascript, Typescript, PHP, C, C++
+Languages: Java, C#, Go, Javascript, Typescript, PHP, C, C++
 Tools: Spring Boot, React, Elasticsearch, Solr, Lucene, RabbitMQ, AWS, Kibana
 
 
 Experience
 Senior Software Engineer, Veeva Systems Inc – Pleasanton, CA (Remote)        Jan 2023 – Present
-* Act as a backend-focused technical lead for a multi-tenant B2B learning platform, designing asynchronous workflows and data pipelines to support large-scale training automation
-* Designed and implemented an event-driven automation system to synchronize user and training profiles across lifecycle events, eliminating manual setup and ensuring consistency at scale
-* Built backend services to support global GCP certification auto-completion, integrating with shared S3 storage and multi-tenant registries to prevent redundant training across customers
-* Delivered a rule-based curriculum outcome system with React configuration and async backend processing, enabling extensible automation of training requirements
-* Investigate and resolve production issues using distributed logging and service-level debugging in a multi-service environment
-* Mentor engineers, review architecture, and guide implementation decisions across the team
+* Lead backend design for a multi-tenant learning platform, focusing on asynchronous workflows and large-scale training automation
+* Redesigned the curriculum outcomes system from a fixed model to a generalized, extensible architecture supporting multiple outcome types, enabling new product capabilities without repeated schema and workflow changes
+* Built an event-driven system to synchronize user and training data across lifecycle events, eliminating manual setup and reducing data inconsistencies
+* Built a cross-tenant certification reuse system for GCP training, persisting completion certificates in S3 and detecting prior completions to trigger exemption workflows instead of redundant retraining
+* Designed and operated background job workflows for high-volume processing, balancing correctness, performance, and operational visibility
+* Investigate production issues across distributed services using logs, tracing, and targeted debugging
+* Mentor engineers and contribute to architecture and design decisions across the team
 
 
 
 
 Senior Software Developer, Paycom – Oklahoma City, OK        Sep 2016 – Dec 2022
-* Led development of a high-performance resume search system using Elasticsearch, reducing query latency from 30+ seconds to under 100ms across 7M+ records
-* Designed and implemented a C# synchronization service to maintain consistency between MySQL and search indices in a PHP-based ecosystem
-* Delivered an offer letter management platform with templating, approval workflows, and PDF generation, integrating across payroll and onboarding systems
-* Built custom testing frameworks (C#, PHP, React) that reduced test runtime from 60+ seconds to under 5 seconds, significantly improving developer feedback cycles
-* Migrated legacy frontend systems to React and REST APIs to support mobile clients and improve performance
-* Served as technical lead on cross-team initiatives, mentoring engineers and driving architecture decisions from design through production
+* Led development of a resume search system using Elasticsearch, reducing query latency from 30+ seconds to under 100ms across 7M+ records
+* Built a C# service to synchronize MySQL data with search indices in a PHP-based system, improving consistency and reliability
+* Developed an offer letter platform with templating, approvals, and PDF generation, integrated with payroll and onboarding systems
+* Created internal testing tools (C#, PHP, React) that reduced test runtime from 60+ seconds to under 5 seconds
+* Migrated legacy frontend systems to React and REST APIs to support mobile clients
+* Served as technical lead on cross-team projects, guiding design and implementation
 
 
 
 
 Electrical Engineer, Federal Aviation Administration – Oklahoma City, OK        Aug 2014 – Jul 2016
-* Contributed to the operation and support of the ASDE-X radar system, a real-time, high-reliability FAA program used at major U.S. airports to track aircraft and ground vehicles.
-* Built a high-speed C++ application to parse fault logs, reducing processing time from 2 minutes to under 1 second, adopted by 8–10 engineers.
+* Supported the ASDE-X radar system, a real-time, high-reliability FAA program used at major U.S. airports to track aircraft and ground vehicles.
+* Built a C++ log parser that reduced analysis time from ~2 minutes to under 1 second, adopted across the team
 
 
 Computer Programmer, K20 Center – Norman, OK        Aug 2012 – July 2014
-* Developed a native iPad app in Objective-C for school administrators, distributed via the App Store.
-* Built and maintained PHP/JavaScript web applications to support educational programs.
+* Developed an iPad app (Objective-C) for school administrators, published to the App Store
+* Built and maintained PHP/JavaScript web applications for educational programs
 
 
 Selected Projects
 Live Streaming Platform (Go, SRS, FFmpeg)
-* Designed a low-cost live streaming architecture (RTSP → FFmpeg → RTMP → SRS → HLS) supporting multi-room studio setups and browser playback
-* Modeled infrastructure and bandwidth costs, optimizing for VPS-based deployment over managed CDN solutions
-* Implemented role-based access control and real-time stream status updates via SSE
-* Evaluated VPS vs CDN deployment strategies based on bandwidth and cost constraints
+* Designed and built a low-cost live streaming system (RTSP → FFmpeg → RTMP → SRS → HLS) supporting multi-room studio environments
+* Implemented ingest control to dynamically start/stop FFmpeg pipelines from RTSP cameras, reducing unnecessary upstream bandwidth usage
+* Designed the system around VPS-based infrastructure to avoid per-GB CDN costs, modeling bandwidth usage and cost tradeoffs across typical and peak workloads
+* Built real-time stream state updates using SSE to reflect live/offline status across clients
+* Implemented role-based access control and per-room stream key management
+* Evaluated CDN integration strategies for burst traffic (e.g., large events) while keeping baseline costs low
 
 
 Family Portal & iOS Companion App (Go, Preact, Swift)
-* Built a full-stack system for managing family data (photos, measurements, milestones) with tagging, image processing, and visualization
-* Designed local-first sync model for iOS client with eventual consistency to backend services
-* Implemented background job processing for image transformation and metadata extraction
+* Built a system for managing family data (photos, measurements, milestones) with image processing and visualization
+* Designed a local-first sync model for the iOS client with eventual consistency
+* Implemented background jobs for image processing and metadata extraction
 
 
 Education

@@ -1,6 +1,33 @@
 import * as preact from "preact";
+import * as vlens from "vlens";
+import { Ref } from "vlens/refs";
 
-export const TurnTakerCaseStudy = () => (
+const photos = [
+  "/images/IMG_20251206_103437.HEIC_compressed.JPEG",
+  "/images/IMG_20260104_134142.jpeg_compressed.JPEG",
+  "/images/IMG_20260204_205052.jpeg_compressed.JPEG",
+  "/images/IMG_20260206_212933_1.jpeg_compressed.JPEG",
+];
+
+type TurnState = { lightbox: string | null };
+
+const useTurnState = vlens.declareHook((): TurnState => ({ lightbox: null }));
+
+const openLightbox = (ref: Ref, src: string) => {
+  vlens.refSet(ref, src);
+  vlens.scheduleRedraw();
+};
+
+const closeLightbox = (ref: Ref) => {
+  vlens.refSet(ref, null);
+  vlens.scheduleRedraw();
+};
+
+export const TurnTakerCaseStudy = () => {
+  const state = useTurnState();
+  const lightboxRef = vlens.ref(state, "lightbox");
+  const lightbox = vlens.refGet(lightboxRef);
+  return (
   <div class="case-study">
     <p class="section-body">
       Custom embedded device (PCB + firmware + enclosure) built to manage turn-taking between
@@ -123,6 +150,23 @@ export const TurnTakerCaseStudy = () => (
       <li>Practical UI design under strict constraints</li>
     </ul>
 
+    <h3>Photos</h3>
+    <div class="case-study-photos">
+      {photos.map((src) => (
+        <img
+          key={src}
+          src={src}
+          alt="Turn Taker device photo"
+          onClick={vlens.cachePartial(openLightbox, lightboxRef, src)}
+        />
+      ))}
+    </div>
+    {lightbox && (
+      <div class="lightbox-overlay" onClick={vlens.cachePartial(closeLightbox, lightboxRef)}>
+        <img src={lightbox} alt="Turn Taker device photo" onClick={(e) => e.stopPropagation()} />
+      </div>
+    )}
+
     <h3>Code &amp; Design Files</h3>
     <p>
       <a href="https://github.com/sggrissom/turn-taker" target="_blank" rel="noopener noreferrer">
@@ -130,4 +174,5 @@ export const TurnTakerCaseStudy = () => (
       </a>
     </p>
   </div>
-);
+  );
+};

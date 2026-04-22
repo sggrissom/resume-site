@@ -224,8 +224,8 @@ export function view(
       </div>
 
       <div className="analytics-actions">
-        <a href="/sessions" className="btn">View Sessions</a>
-        <a href="/visits" className="btn">View Visits</a>
+        <a href="/sgg/sessions" className="btn">View Sessions</a>
+        <a href="/sgg/visits" className="btn">View Visits</a>
       </div>
     </div>
   );

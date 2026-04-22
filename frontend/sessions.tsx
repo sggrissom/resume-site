@@ -120,7 +120,7 @@ export function view(
     <div className="sessions-page">
       <div className="page-header">
         <h2>Sessions ({filteredSessions.length} total)</h2>
-        <a href="/analytics" className="btn">← Analytics Dashboard</a>
+        <a href="/sgg/analytics" className="btn">← Analytics Dashboard</a>
       </div>
 
       {/* Filters */}

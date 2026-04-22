@@ -122,7 +122,7 @@ export function view(
     switch (path) {
       case "/": return "Home";
       case "/resume-page": return "Resume";
-      case "/analytics": return "Analytics";
+      case "/sgg/analytics": return "Analytics";
       case "/sessions": return "Sessions";
       case "/visits": return "Visits";
       default: return path;
@@ -133,7 +133,7 @@ export function view(
     <div className="visits-page">
       <div className="page-header">
         <h2>Visits ({filteredVisits.length} total)</h2>
-        <a href="/analytics" className="btn">← Analytics Dashboard</a>
+        <a href="/sgg/analytics" className="btn">← Analytics Dashboard</a>
       </div>
 
       {/* Filters */}
